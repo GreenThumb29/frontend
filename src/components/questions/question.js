@@ -90,12 +90,26 @@ const Question = ({
             type="text"
             placeholder="Enter..."
           />
-          <button
-            onClick={handleButtonPress}
-            className="bg-app.green py-2 px-2 mt-4 "
-          >
-            {presentQuestion < totalQuestion ? "Next" : "Submit"}
-          </button>
+          <div className="flex">
+            <button
+              onClick={() =>
+                presentQuestion > 1 && handleDotPress(presentQuestion - 2)
+              }
+              className={`flex-1  py-2 px-2 mt-4 mr-3 transition-all duration-200 bg-app.green  ${
+                presentQuestion === 1
+                  ? "cursor-not-allowed text-gray-300 "
+                  : " cursor-pointer text-app.yellow"
+              } `}
+            >
+              {"< Previous"}
+            </button>
+            <button
+              onClick={handleButtonPress}
+              className="bg-app.green py-2 px-2 mt-4 flex-1 "
+            >
+              {presentQuestion < totalQuestion ? "Next >" : "Submit"}
+            </button>
+          </div>
         </div>
       );
     case "email":
@@ -125,12 +139,26 @@ const Question = ({
               </label>
             </span>
           )}
-          <button
-            onClick={handleButtonPress}
-            className="bg-app.green py-2 px-2 mt-4 "
-          >
-            {presentQuestion < totalQuestion ? "Next" : "Submit"}
-          </button>
+          <div className="flex">
+            <button
+              onClick={() =>
+                presentQuestion > 1 && handleDotPress(presentQuestion - 2)
+              }
+              className={`flex-1  py-2 px-2 mt-4 mr-3 transition-all duration-200 bg-app.green  ${
+                presentQuestion === 1
+                  ? "cursor-not-allowed text-gray-300 "
+                  : " cursor-pointer text-app.yellow"
+              } `}
+            >
+              {"< Previous"}
+            </button>
+            <button
+              onClick={handleButtonPress}
+              className="bg-app.green py-2 px-2 mt-4 flex-1 "
+            >
+              {presentQuestion < totalQuestion ? "Next >" : "Submit"}
+            </button>
+          </div>
         </div>
       );
   }
