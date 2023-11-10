@@ -18,7 +18,7 @@ const ProgramList = ({ gqlQuery }) => {
         <div mb-12>
           {data?.programs.map((scheme, id) => {
             return (
-              <div className=" bg-app.darkGreen mt-2 px-3 py-4 text-yellow-50 rounded-sm shadow-md">
+              <div key={id} className=" bg-app.darkGreen mt-2 px-3 py-4 text-yellow-50 rounded-sm shadow-md">
                 <h2 className=" font-medium">{scheme?.title}</h2>
                 <h3 className=" italic text-xs">{scheme?.fundingScemeType}</h3>
                 <a
