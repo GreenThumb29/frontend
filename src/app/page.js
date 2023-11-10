@@ -110,7 +110,7 @@ export default function Home() {
 
   return (
     <RootLayout>
-      <div className=" bg-app.darkGreen w-screenr">
+      <div className=" bg-app.darkGreen w-screen">
         <div className="h-full">
           <Navbar />
           <div className="h-full lg:flex">
@@ -130,7 +130,7 @@ export default function Home() {
                   />
                 </div>
                 <p className=" text-justify text-yellow-50 text-xs leading-relaxed tracking-wider font-light">
-                  Welcome to Green Thumb project. It`&apos;`s an initiative by
+                  Welcome to Green Thumb project. It&apos;s an initiative by
                   e2fSystems, aimed at helping companies of all sizes find
                   funding for their energy efficiency and sustainability
                   projects.
