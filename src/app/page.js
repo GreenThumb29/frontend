@@ -110,7 +110,7 @@ export default function Home() {
 
   return (
     <RootLayout>
-      <div className=" bg-app.darkGreen w-screen">
+      <div className=" bg-app.darkGreen">
         <div className="h-full">
           <Navbar />
           <div className="h-full lg:flex">
