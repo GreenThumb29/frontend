@@ -118,7 +118,7 @@ export default function Home() {
             <div className="min-h-screen h-full mt-20 md:mt-0 lg:flex-1 flex flex-col md:justify-center items-center container lg:sticky top-0">
               <div className="mb-9 w-full lg:w-3/4">
                 <p className="text-left w-full text-app.yellow font-semibold text-lg md:text-2xl tracking-wider">
-                  The initiative by E2fSystems{" "}
+                  The initiative by E2F Systems{" "}
                 </p>
               </div>
               <div className=" flex items-start lg:w-3/4 border border-dotted p-4 border-app.yellow">
@@ -130,10 +130,9 @@ export default function Home() {
                   />
                 </div>
                 <p className=" text-justify text-yellow-50 text-xs leading-relaxed tracking-wider font-light">
-                  Welcome to Green Thumb project. It&apos;s an initiative by
-                  e2fSystems, aimed at helping companies of all sizes find
-                  funding for their energy efficiency and sustainability
-                  projects.
+                  Welcome to Green Thumb project. It&apos;s an initiative by E2F
+                  Systems, aimed at helping companies of all sizes find funding
+                  for their energy efficiency and sustainability projects.
                 </p>
               </div>
               {/* <QuestionNumber

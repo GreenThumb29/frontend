@@ -141,7 +141,7 @@ const Question = ({
                 type="checkbox"
               />
               <label for="agreement" className=" text-xs font-light">
-                You agree to Terms & Condition of e2fSystems.
+                You agree to Terms & Condition of E2F Systems.
               </label>
             </span>
           )}
