@@ -81,7 +81,10 @@ const Question = ({
     case "text":
       return (
         <div className=" flex flex-col w-full lg:w-3/4 text-app.yellow">
-          <label className="my-4">{question?.des}</label>
+          <label className="my-4">
+            <span className=" text-3xl">{presentQuestion}</span> /{" "}
+            {totalQuestion}. {question?.des}
+          </label>
           <input
             value={value}
             onChange={(e) => setValue(e.target.value)}
@@ -115,7 +118,10 @@ const Question = ({
     case "email":
       return (
         <div className=" flex flex-col w-full lg:w-3/4 text-app.yellow">
-          <label className="my-4">{question?.des}</label>
+          <label className="my-4">
+            <span className=" text-3xl">{presentQuestion}</span> /{" "}
+            {totalQuestion}. {question?.des}
+          </label>
           <input
             className=" bg-app.darkGreen border-colors-app.yellow border-app.yellow border placeholder:text-app.yellow px-3 py-2 "
             name="question"

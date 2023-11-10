@@ -61,7 +61,7 @@ export default {
     key: "userName",
   },
   6: {
-    id: 5,
+    id: 6,
     des: "Organization Name",
     inputType: "text",
     valueType: "string",
@@ -69,7 +69,7 @@ export default {
     key: "orgName",
   },
   7: {
-    id: 5,
+    id: 7,
     des: "Your company email id ?",
     inputType: "email",
     valueType: "string",
