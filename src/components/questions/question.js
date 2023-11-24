@@ -14,7 +14,7 @@ const Question = ({
 
   useEffect(() => {
     if (question?.inputType === "dropDown") {
-      setValue(question?.option[0]);
+      setValue(question?.optionValues[0]);
     } else {
       setValue("");
     }

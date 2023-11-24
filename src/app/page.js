@@ -46,9 +46,7 @@ export default function Home() {
   const handleNextQuestion = async (currentValue, updatedForm) => {
     if (currentValue?.FundingCategory !== undefined) {
       setStream(currentValue?.FundingCategory);
-      // setStream(currentValue?.toLowerCase());
     }
-    // storing the {key: "key" value: "value"} in the form state
     setForm(updatedForm);
 
     // updating the question number
@@ -72,14 +70,62 @@ export default function Home() {
     }
 
     // formatting query
+    // const formForQuery = {
+    //   ...updatedForm,
 
-    const formForQuery = {
-      ...updatedForm,
-      orgName: undefined,
-      userName: undefined,
-      userEmail: undefined,
-    };
+    //   orgName: undefined,
+    //   userName: undefined,
+    //   userEmail: undefined,
+    // };
+    const dataForQuery = {};
+    Object.keys(updatedForm).forEach((key) => {
+      if (
+        key === "orgName" ||
+        key === "userName" ||
+        key === "userEmail" ||
+        updatedForm[key] === "none"
+      ) {
+        updatedForm[key] = undefined;
+      } else {
+        dataForQuery[key] = updatedForm[key];
+      }
+    });
 
+    // {programCategory
+    // where: {eligibilityCriteria: {energyBudget: b_lt_50k}, OR: {eligibilityCriteria: {gasBudget: b_lt_50k}, OR {eligibilityCriteria: {employees: e_0_50}}}}
+
+    console.log(generateWhereClause(dataForQuery), "---------------------dd--");
+    const formattedQuery2 = gql`
+    query MyQuery {
+      programs(where: ${generateWhereClause(dataForQuery)} ) {
+        title
+        url
+        eligibilityCriteria {
+          programCategory
+          extraEligibilities
+        }
+        description
+        fundingScemeType
+      }
+    }
+    `;
+
+    const formattedQuery3 = `
+    query MyQuery {
+      programs(where: ${generateWhereClause(dataForQuery)} ) {
+        title
+        url
+        eligibilityCriteria {
+          programCategory
+          extraEligibilities
+        }
+        description
+        fundingScemeType
+      }
+    }
+    `;
+
+    // console.log(formattedQuery3, "Dgdfgdfgdfgdf");
     const formattedQuery = gql`
       query MyQuery {
         programs {
@@ -94,11 +140,23 @@ export default function Home() {
         }
       }
     `;
-    setQuery(formattedQuery);
+    setQuery(formattedQuery2);
 
     resultSectionRef.current?.scrollIntoView({
       behavior: "smooth",
     });
+  };
+
+  const generateWhereClause = (conditions) => {
+    const orClauses = Object.keys(conditions).map((key) => {
+      return `{ ${key}: ${conditions[key]} }`;
+    });
+
+    const whereClause = `{ eligibilityCriteria: { OR: [${orClauses.join(
+      ", "
+    )}] } }`;
+
+    return whereClause;
   };
 
   const handleDotPress = (value) => {
@@ -118,7 +176,8 @@ export default function Home() {
             <div className="min-h-screen h-full mt-20 md:mt-0 lg:flex-1 flex flex-col md:justify-center items-center container lg:sticky top-0">
               <div className="mb-9 w-full lg:w-3/4">
                 <p className="text-left w-full text-app.yellow font-semibold text-lg md:text-2xl tracking-wider">
-                  The initiative by E2F Systems{" "}
+                  The initiative help to help find funds for green energy
+                  projects in Ontario.{" "}
                 </p>
               </div>
               <div className=" flex items-start lg:w-3/4 border border-dotted p-4 border-app.yellow">
@@ -170,7 +229,10 @@ export default function Home() {
                   <NewsLetterInput />
                 </>
               ) : (
-                <ProgramList gqlQuery={query} />
+                <>
+                  <ProgramList gqlQuery={query} />
+                  <NewsLetterInput />
+                </>
               )}
             </div>
           </div>
