@@ -153,7 +153,7 @@ const NewsLetterInput = () => {
                     marginBottom: "1rem",
                   }}
                 >
-                  Let's Connect!
+                  Let&apos;s Connect!
                 </h3>
                 <form
                   onSubmit={handleFormSubmit}
